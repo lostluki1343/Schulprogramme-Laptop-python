@@ -28,7 +28,7 @@ button2 = driver.find_element(By.ID, "form_uebersicht:j_idt340:0:kurs")  # ID de
 button2.click()
 
 time.sleep(7)
-button3 = driver.find_element(By.ID, "form_uebersicht:j_idt725:6:activity")  # ID des Buttons
+button3 = driver.find_element(By.ID, "form_uebersicht:j_idt733:6:activity")  # ID des Buttons
 button3.click()
 
 time.sleep(4)
@@ -61,4 +61,7 @@ while j<endwert:
     feld1.send_keys(j, einheit)
     button6.click()
     time.sleep(5)
+
+
+
 
