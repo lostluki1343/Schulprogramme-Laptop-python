@@ -28,7 +28,11 @@ button2 = driver.find_element(By.ID, "form_uebersicht:j_idt340:0:kurs")  # ID de
 button2.click()
 
 time.sleep(7)
-button3 = driver.find_element(By.ID, "form_uebersicht:j_idt733:6:activity")  # ID des Buttons
+button3 = driver.find_element(By.ID, "form_uebersicht:j_idt828:0:activity")  # ID des Buttons
+button3.click()
+
+time.sleep(7)
+button3 = driver.find_element(By.ID, "form_folder:j_idt1297:1:activity")  # ID des Buttons
 button3.click()
 
 time.sleep(4)
@@ -42,10 +46,10 @@ time.sleep(2)
 
 
 
-anfangswert=10
-endwert=20
-schrittweite=0.1
-einheit="s"
+anfangswert=370
+endwert=390
+schrittweite=1
+einheit="kg"
 
 
 
@@ -60,8 +64,15 @@ while j<endwert:
     round(j,1)
     feld1.send_keys(j, einheit)
     button6.click()
+    
+    span_element = driver.find_element(By.XPATH, "//span[input[@id='questionForm:mcq:0:inpCq']]")
+    span_class = span_element.get_attribute("class")
+    
     time.sleep(5)
 
+    if (span_class == "ergTrue ui-inputwrapper-filled"):
+        print("Richtiger Wert gefunden!")
+        break
 
 
-
+    
