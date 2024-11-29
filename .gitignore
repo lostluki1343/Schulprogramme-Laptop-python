@@ -1,2 +1,5 @@
 *.png
-
+!rng.py
+!brawlstars.py
+!carrot.py
+!cocoa.py
