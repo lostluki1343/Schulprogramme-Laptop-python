@@ -6,6 +6,23 @@ import tkinter as tk
 from tkinter import messagebox
 import time
 
+
+
+
+beispielNr=3        # Auswahl des Beispiels
+feldNr=1            # Auswahl des Feldes
+
+anfangswert=0       # wähle den Anfangswert
+endwert=2           # wähle den Endwert
+schrittweite=0.01   # wähle die Schrittweite
+einheit=""          # wähle die Einheit
+
+
+
+
+
+
+
 # WebDriver starten (z. B. Chrome)
 driver = webdriver.Firefox()  # oder webdriver.Firefox() für Firefox
 driver.get("https://letto.htlstp.ac.at/lettohtlstp/letto/login.jsf")  # URL deiner Letto-Software
@@ -33,7 +50,7 @@ time.sleep(3)
 button3 = driver.find_element(By.ID, "j_idt1584:j_idt1586:0:j_idt1603")  # ID des Buttons
 button3.click()
 
-for n in range (2):
+for n in range (beispielNr-1):
 
     time.sleep(3)
     button3 = driver.find_element(By.ID, "questionForm:j_idt1772")  # ID des Buttons
@@ -46,10 +63,7 @@ time.sleep(3)
 
 
 
-anfangswert=0
-endwert=2
-schrittweite=0.01
-einheit=""
+
 
 
 
@@ -57,7 +71,7 @@ j=anfangswert - schrittweite
 while j<endwert:
 
     button6 = driver.find_element(By.ID, "questionForm:pruefen")  # ID des Buttons
-    feld1 = driver.find_element(By.ID, "questionForm:mcq:1:inpCq")
+    feld1 = driver.find_element(By.ID, "questionForm:mcq:" + str(feldNr-1) + ":inpCq")
     
     feld1.clear()
     j=j + schrittweite
@@ -67,7 +81,7 @@ while j<endwert:
     
     time.sleep(6)
 
-    span_element = driver.find_element(By.XPATH, "//span[input[@id='questionForm:mcq:1:inpCq']]")
+    span_element = driver.find_element(By.XPATH, "//span[input[@id='questionForm:mcq:" + str(feldNr-1) + ":inpCq']]")
     span_class = span_element.get_attribute("class")
     
     if (span_class == "ergTrue ui-inputwrapper-filled"):
