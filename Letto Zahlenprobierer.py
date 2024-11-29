@@ -49,17 +49,19 @@ time.sleep(3)
 button3 = driver.find_element(By.ID, "j_idt1584:j_idt1586:0:j_idt1603")  
 button3.click()
 
-if (beispielNr != 1):
 
-    for n in range (beispielNr - 1):
 
-        time.sleep(3)
-        button4 = driver.find_element(By.ID, "questionForm:j_idt1772")  
-        button4.click()
-
-else:
+for n in range (beispielNr - 1):
 
     time.sleep(3)
+    button4 = driver.find_element(By.ID, "questionForm:j_idt1772")  
+    button4.click()
+
+
+
+
+
+time.sleep(3)
 
 
 
@@ -69,41 +71,41 @@ else:
 
 
 
-    j=anfangswert - schrittweite
-    while j<endwert:
+j=anfangswert - schrittweite
+while j<endwert:
 
-        button6 = driver.find_element(By.ID, "questionForm:pruefen")  # ID des Buttons
-        feld1 = driver.find_element(By.ID, "questionForm:mcq:" + str(feldNr-1) + ":inpCq")
-        
-        feld1.clear()
-        j=j + schrittweite
-        round(j,3)
-        feld1.send_keys(j, einheit)
-        button6.click()
-        
-        time.sleep(6)
+    button6 = driver.find_element(By.ID, "questionForm:pruefen")  # ID des Buttons
+    feld1 = driver.find_element(By.ID, "questionForm:mcq:" + str(feldNr-1) + ":inpCq")
+    
+    feld1.clear()
+    j=j + schrittweite
+    round(j,3)
+    feld1.send_keys(j, einheit)
+    button6.click()
+    
+    time.sleep(4)
 
-        span_element = driver.find_element(By.XPATH, "//span[input[@id='questionForm:mcq:" + str(feldNr-1) + ":inpCq']]")
-        span_class = span_element.get_attribute("class")
-        
-        if (span_class == "ergTrue ui-inputwrapper-filled"):
-            print("Richtiger Wert gefunden!")
+    span_element = driver.find_element(By.XPATH, "//span[input[@id='questionForm:mcq:" + str(feldNr-1) + ":inpCq']]")
+    span_class = span_element.get_attribute("class")
+    
+    if (span_class == "ergTrue ui-inputwrapper-filled"):
+        print("Richtiger Wert gefunden!")
 
-            # Funktion, um den Alert zu zeigen
-            def show_alert():
-                # Neues Tkinter-Fenster erstellen (wird für messagebox benötigt, aber bleibt unsichtbar)
-                root = tk.Tk()
-                root.withdraw()  # Versteckt das Hauptfenster
+        # Funktion, um den Alert zu zeigen
+        def show_alert():
+            # Neues Tkinter-Fenster erstellen (wird für messagebox benötigt, aber bleibt unsichtbar)
+            root = tk.Tk()
+            root.withdraw()  # Versteckt das Hauptfenster
 
-                # Zeige die Alert-Message
-                messagebox.showinfo("Hinweis", "Richtiger Wert gefunden!")
+            # Zeige die Alert-Message
+            messagebox.showinfo("Hinweis", "Richtiger Wert gefunden!")
 
-                # Hauptfenster zerstören
-                root.destroy()
+            # Hauptfenster zerstören
+            root.destroy()
 
-            # Alert-Fenster anzeigen
-            show_alert()
-            break 
-        
+        # Alert-Fenster anzeigen
+        show_alert()
+        break 
+    
 
-        
+    
