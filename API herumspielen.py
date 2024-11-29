@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import tkinter as tk
+from tkinter import messagebox
 import time
 
 # WebDriver starten (z. B. Chrome)
@@ -24,36 +26,39 @@ button1.click()
 
 # Warte, bis die nächste Seite geladen ist
 time.sleep(3)
-button2 = driver.find_element(By.ID, "form_uebersicht:j_idt340:0:kurs")  # ID des Buttons
+button2 = driver.find_element(By.ID, "j_idt374:j_idt376:4:j_idt393")  # ID des Buttons
 button2.click()
 
-time.sleep(7)
-button3 = driver.find_element(By.ID, "form_uebersicht:j_idt828:0:activity")  # ID des Buttons
+time.sleep(3)
+button3 = driver.find_element(By.ID, "j_idt1584:j_idt1586:0:j_idt1603")  # ID des Buttons
 button3.click()
 
-time.sleep(7)
-button3 = driver.find_element(By.ID, "form_folder:j_idt1297:1:activity")  # ID des Buttons
+time.sleep(3)
+button3 = driver.find_element(By.ID, "questionForm:j_idt1772")  # ID des Buttons
 button3.click()
 
-time.sleep(4)
-button4 = driver.find_element(By.ID, "j_idt423:j_idt425:0:j_idt442")  # ID des Buttons
-button4.click()
+time.sleep(3)
+button3 = driver.find_element(By.ID, "questionForm:j_idt1772")  # ID des Buttons
+button3.click()
 
+time.sleep(3)
+button3 = driver.find_element(By.ID, "questionForm:j_idt1772")  # ID des Buttons
+button3.click()
 
-time.sleep(2)
-
-
-
-
-
-anfangswert=370
-endwert=390
-schrittweite=1
-einheit="kg"
+time.sleep(3)
 
 
 
-j=anfangswert
+
+
+anfangswert=0
+endwert=2
+schrittweite=0.05
+einheit=""
+
+
+
+j=anfangswert - schrittweite
 while j<endwert:
 
     button6 = driver.find_element(By.ID, "questionForm:pruefen")  # ID des Buttons
@@ -65,14 +70,14 @@ while j<endwert:
     feld1.send_keys(j, einheit)
     button6.click()
     
+    time.sleep(4)
+
     span_element = driver.find_element(By.XPATH, "//span[input[@id='questionForm:mcq:0:inpCq']]")
     span_class = span_element.get_attribute("class")
     
-    time.sleep(5)
-
     if (span_class == "ergTrue ui-inputwrapper-filled"):
         print("Richtiger Wert gefunden!")
-        break
-
+        break 
+    
 
     
