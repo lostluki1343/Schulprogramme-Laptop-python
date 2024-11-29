@@ -9,13 +9,13 @@ import time
 
 
 aufgabeNr=3         # Auswahl der Aufgabe
-beispielNr=1        # Auswahl des Beispiels
-feldNr=7            # Auswahl des Feldes
+beispielNr=2        # Auswahl des Beispiels
+feldNr=4            # Auswahl des Feldes
 
 anfangswert=0       # wähle den Anfangswert
-endwert=2           # wähle den Endwert
-schrittweite=0.01   # wähle die Schrittweite
-einheit=""          # wähle die Einheit
+endwert=500           # wähle den Endwert
+schrittweite=1   # wähle die Schrittweite
+einheit="s"          # wähle die Einheit
 
 
 
@@ -42,7 +42,7 @@ button1 = driver.find_element(By.ID, "j_idt22:login")
 button1.click()
 
 time.sleep(3)
-button2 = driver.find_element(By.ID, "j_idt374:j_idt376:2:j_idt393")  
+button2 = driver.find_element(By.ID, "j_idt374:j_idt376:" + str(aufgabeNr - 1) + ":j_idt393")  
 button2.click()
 
 time.sleep(3)
