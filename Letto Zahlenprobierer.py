@@ -83,7 +83,7 @@ while j<endwert:
     feld1.send_keys(j, einheit)
     button6.click()
     
-    time.sleep(4)
+    time.sleep(6)
 
     span_element = driver.find_element(By.XPATH, "//span[input[@id='questionForm:mcq:" + str(feldNr-1) + ":inpCq']]")
     span_class = span_element.get_attribute("class")
