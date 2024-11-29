@@ -33,17 +33,12 @@ time.sleep(3)
 button3 = driver.find_element(By.ID, "j_idt1584:j_idt1586:0:j_idt1603")  # ID des Buttons
 button3.click()
 
-time.sleep(3)
-button3 = driver.find_element(By.ID, "questionForm:j_idt1772")  # ID des Buttons
-button3.click()
+for n in range (2):
 
-time.sleep(3)
-button3 = driver.find_element(By.ID, "questionForm:j_idt1772")  # ID des Buttons
-button3.click()
+    time.sleep(3)
+    button3 = driver.find_element(By.ID, "questionForm:j_idt1772")  # ID des Buttons
+    button3.click()
 
-time.sleep(3)
-button3 = driver.find_element(By.ID, "questionForm:j_idt1772")  # ID des Buttons
-button3.click()
 
 time.sleep(3)
 
@@ -53,7 +48,7 @@ time.sleep(3)
 
 anfangswert=0
 endwert=2
-schrittweite=0.05
+schrittweite=0.01
 einheit=""
 
 
@@ -62,21 +57,36 @@ j=anfangswert - schrittweite
 while j<endwert:
 
     button6 = driver.find_element(By.ID, "questionForm:pruefen")  # ID des Buttons
-    feld1 = driver.find_element(By.ID, "questionForm:mcq:0:inpCq")
+    feld1 = driver.find_element(By.ID, "questionForm:mcq:1:inpCq")
     
     feld1.clear()
     j=j + schrittweite
-    round(j,1)
+    round(j,3)
     feld1.send_keys(j, einheit)
     button6.click()
     
-    time.sleep(4)
+    time.sleep(6)
 
-    span_element = driver.find_element(By.XPATH, "//span[input[@id='questionForm:mcq:0:inpCq']]")
+    span_element = driver.find_element(By.XPATH, "//span[input[@id='questionForm:mcq:1:inpCq']]")
     span_class = span_element.get_attribute("class")
     
     if (span_class == "ergTrue ui-inputwrapper-filled"):
         print("Richtiger Wert gefunden!")
+
+        # Funktion, um den Alert zu zeigen
+        def show_alert():
+            # Neues Tkinter-Fenster erstellen (wird für messagebox benötigt, aber bleibt unsichtbar)
+            root = tk.Tk()
+            root.withdraw()  # Versteckt das Hauptfenster
+
+            # Zeige die Alert-Message
+            messagebox.showinfo("Hinweis", "Richtiger Wert gefunden!")
+
+            # Hauptfenster zerstören
+            root.destroy()
+
+        # Alert-Fenster anzeigen
+        show_alert()
         break 
     
 

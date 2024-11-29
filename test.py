@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+import math
 
 # Funktion, um den Alert zu zeigen
 def show_alert():
@@ -15,3 +16,8 @@ def show_alert():
 
 # Alert-Fenster anzeigen
 show_alert()
+
+
+print(2*math.pi*(1/66))
+
+
