@@ -1,8 +1,8 @@
 import math
 
-vrz=4
-frz=50
-k=8/3
+vrz=9
+frz=75
+k=18/3
 D=0.35682
 
 x=1/(4*(vrz/k)**2)
