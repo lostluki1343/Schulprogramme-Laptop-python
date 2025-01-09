@@ -8,14 +8,14 @@ import time
 
 
 
-aufgabeNr=6         # Auswahl der Aufgabe
-beispielNr=3        # Auswahl des Beispiels
-feldNr=2            # Auswahl des Feldes
+aufgabeNr=4         # Auswahl der Aufgabe
+beispielNr=2        # Auswahl des Beispiels
+feldNr=1            # Auswahl des Feldes
 
 anfangswert=0       # wähle den Anfangswert
-endwert=10           # wähle den Endwert
-schrittweite=0.1   # wähle die Schrittweite
-einheit=""          # wähle die Einheit
+endwert=1000           # wähle den Endwert
+schrittweite=10   # wähle die Schrittweite
+einheit="Hz"          # wähle die Einheit
 
 
 
@@ -35,7 +35,7 @@ username_field = driver.find_element(By.ID, "j_idt22:username")  # ID des Benutz
 password_field = driver.find_element(By.ID, "j_idt22:pwd")  # ID des Passwortfelds
 
 username_field.send_keys("lukas.schloegl")
-password_field.send_keys("xx")
+password_field.send_keys("Lotte1442005!")
 
 
 button1 = driver.find_element(By.ID, "j_idt22:login")  
