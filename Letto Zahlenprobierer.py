@@ -8,7 +8,7 @@ import time
 
 
 
-aufgabeNr=4         # Auswahl der Aufgabe
+aufgabeNr=1         # Auswahl der Aufgabe
 beispielNr=2        # Auswahl des Beispiels
 feldNr=1            # Auswahl des Feldes
 
@@ -34,41 +34,32 @@ time.sleep(3)
 username_field = driver.find_element(By.ID, "j_idt22:username")  # ID des Benutzernamenfelds
 password_field = driver.find_element(By.ID, "j_idt22:pwd")  # ID des Passwortfelds
 
-username_field.send_keys("lukas.schloegl")
-password_field.send_keys("Lotte1442005!")
+username_field.send_keys("erwin.mot")
+password_field.send_keys("Aderleiste30")
 
 
 button1 = driver.find_element(By.ID, "j_idt22:login")  
 button1.click()
 
 time.sleep(3)
-button2 = driver.find_element(By.ID, "j_idt360:j_idt362:" + str(aufgabeNr - 1) + ":j_idt379")  
+
+button2 = driver.find_element(By.ID, "j_idt359:j_idt361:" + str(aufgabeNr - 1) + ":j_idt378")  
 button2.click()
 
 time.sleep(3)
-button3 = driver.find_element(By.ID, "j_idt423:j_idt425:0:j_idt442")  
+button3 = driver.find_element(By.ID, "j_idt999:j_idt1001:0:j_idt1018")  
 button3.click()
 
 
 
 for n in range (beispielNr - 1):
 
-    time.sleep(4)
+    time.sleep(5)
     button4 = driver.find_element(By.ID, "questionForm:j_idt611")  
     button4.click()
 
 
-
-
-
 time.sleep(3)
-
-
-
-
-
-
-
 
 
 j=anfangswert - schrittweite
