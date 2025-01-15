@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import tkinter as tk
 from tkinter import messagebox
 import time
-#
+
 # Definiere die E12-Reihe
 E12_VALUES = [1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2]
 
@@ -46,11 +46,11 @@ for n in range(beispielNr - 1):
     button4.click()
 
 time.sleep(3)
-#
+
 # E12-Reihe durchprobieren
 for value in E12_VALUES:
 
-    for multiplier in [1]:
+    for multiplier in [1 ,10, 100]:
         time.sleep(1)
         test_value = round(value * multiplier, 3)
         
