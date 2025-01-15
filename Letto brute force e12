@@ -5,13 +5,13 @@ from selenium.webdriver.support import expected_conditions as EC
 import tkinter as tk
 from tkinter import messagebox
 import time
-
+#
 # Definiere die E12-Reihe
 E12_VALUES = [1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2]
 
 aufgabeNr = 1  # Auswahl der Aufgabe
 beispielNr = 2  # Auswahl des Beispiels
-feldNr = 3  # Auswahl des Feldes
+feldNr = 4  # Auswahl des Feldes
 einheit = "uF"  # Einheit der Werte
 
 # WebDriver starten (z. B. Chrome)
