@@ -10,9 +10,9 @@ import time
 E12_VALUES = [1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2]
 
 aufgabeNr = 1  # Auswahl der Aufgabe
-beispielNr = 2  # Auswahl des Beispiels
-feldNr = 4  # Auswahl des Feldes
-einheit = "uF"  # Einheit der Werte
+beispielNr = 8    # Auswahl des Beispiels
+feldNr = 1  # Auswahl des Feldes
+einheit = "kOhm"  # Einheit der Werte
 
 # WebDriver starten (z. B. Chrome)
 driver = webdriver.Firefox()  # oder webdriver.Chrome() für Chrome
@@ -43,14 +43,15 @@ button3.click()
 for n in range(beispielNr - 1):
     time.sleep(5)
     button4 = driver.find_element(By.ID, "questionForm:j_idt610")
-    #button4.click()
+    button4.click()
 
 time.sleep(3)
-
+#
 # E12-Reihe durchprobieren
 for value in E12_VALUES:
-    # Für Werte von 1 bis 1000 (Multiplikation mit Potenzen von 10)
-    for multiplier in [1, 10, 100]:
+
+    for multiplier in [1]:
+        time.sleep(1)
         test_value = round(value * multiplier, 3)
         
         button6 = driver.find_element(By.ID, "questionForm:pruefen")
@@ -60,7 +61,7 @@ for value in E12_VALUES:
         feld1.send_keys(f"{test_value} {einheit}")
         button6.click()
 
-        time.sleep(7)
+        time.sleep(6)
 
         span_element = driver.find_element(By.XPATH, f"//span[input[@id='questionForm:mcq:{feldNr - 1}:inpCq']]")
         span_class = span_element.get_attribute("class")
